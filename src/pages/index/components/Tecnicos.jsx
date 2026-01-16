@@ -1,21 +1,6 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Clock, Briefcase, Users, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
-
-const CONFIG = {
-  sectionId: "tecnicos",
-  colors: { blue: '#0E2244', yellow: '#E2E000' },
-  header: {
-    tag: "Formación para el trabajo",
-    title: "Programas Técnicos",
-    subtitle: "Carreras cortas con alta demanda laboral para que empieces a trabajar rápido."
-  },
-  programs: [
-    { id: 1, name: "Técnico en Sistemas", modality: "100% Virtual", duration: "3 Semestres", focus: "Soporte y Redes", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600" },
-    { id: 2, name: "Auxiliar Administrativo", modality: "100% Virtual", duration: "3 Semestres", focus: "Gestión Empresarial", image: "https://universae.com/wp-content/uploads/2023/09/min-auxiliar-administrativo-funciones.webp" },
-    { id: 3, name: "Seguridad Ocupacional", modality: "100% Virtual", duration: "3 Semestres", focus: "SST y Prevención", image: "https://ecuador.unir.net/wp-content/uploads/sites/8/2024/08/Cuales-son-las-funciones-del-tecnico-de-seguridad-y-salud-ocupacional2.jpg" },
-    { id: 4, name: "Contabilidad", modality: "Virtual", duration: "3 Sem", focus: "Finanzas", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600" }
-  ]
-};
+import CONFIG from '../data/TecnicosData'
 
 const LaboralTechnicians = () => {
   const scrollRef = useRef(null);
@@ -107,28 +92,40 @@ const LaboralTechnicians = () => {
                   </div>
                 </div>
 
-                <button className="w-full flex items-center justify-between group/btn">
-                  <span className="text-sm font-black text-[#0E2244] uppercase tracking-widest">Ver programa</span>
-                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center group-hover/btn:bg-[#E2E000] transition-all">
-                    <ArrowRight size={20} className="text-[#0E2244]" />
-                  </div>
-                </button>
+                <a href="#catalogo">
+                  <button className="w-full flex items-center justify-between group/btn">
+                    <span className="text-sm font-black text-[#0E2244] uppercase tracking-widest">Ver programa</span>
+                    <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center group-hover/btn:bg-[#E2E000] transition-all">
+                      <ArrowRight size={20} className="text-[#0E2244]" />
+                    </div>
+                  </button>
+                </a>
               </div>
             </div>
           ))}
 
           {/* TARJETA VER MÁS */}
           {hasMore && (
-            <div className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[calc(33.333%-1.35rem)] snap-center bg-[#0E2244] rounded-[2.5rem] flex flex-col items-center justify-center p-10 text-center group cursor-pointer border border-white/5 transition-all">
-              <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#E2E000]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <a 
+              href="#catalogo"
+              className="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[calc(33.333%-1.35rem)] snap-center bg-[#0E2244] rounded-[2.5rem] flex flex-col items-center justify-center p-10 text-center group cursor-pointer border border-white/5 transition-all hover:border-[#E2E000]/20 shadow-2xl"
+            >
+              <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#E2E000]/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-[#E2E000] transition-all duration-500">
                 <Plus size={32} className="text-[#E2E000]" />
               </div>
-              <h4 className="text-white font-black text-2xl uppercase italic mb-2">Ver Catálogo <br/> Completo</h4>
-              <p className="text-blue-200/40 text-[10px] font-bold uppercase tracking-widest mb-8">+{CONFIG.programs.length - 3} Programas más</p>
-              <div className="flex items-center gap-3 text-[#E2E000] font-black text-xs uppercase tracking-widest">
+              
+              <h4 className="text-white font-black text-2xl uppercase italic mb-2 leading-tight">
+                Ver Catálogo <br/> Completo
+              </h4>
+              
+              <p className="text-blue-200/40 text-[10px] font-bold uppercase tracking-widest mb-8">
+                +{CONFIG.programs.length - 3} Programas más
+              </p>
+              
+              <div className="flex items-center gap-3 text-[#E2E000] font-black text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
                 Explorar Ahora <ArrowRight size={18} />
               </div>
-            </div>
+            </a>
           )}
         </div>
       </div>
