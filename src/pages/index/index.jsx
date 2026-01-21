@@ -22,8 +22,15 @@ const KlicusLanding = () => {
     gray: '#f9f9f9'
   };
 
+  const WhatsAppFloat = () => (
+    <a href="https://wa.me/123456789" className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition flex items-center justify-center">
+        <MessageCircle size={32} fill="white" />
+    </a>
+  );
+
   return (
     <div className="bg-white text-[#1a1a1a] selection:bg-[#E2E000] selection:text-[#0E2244]">
+
       {/* NAVEGACIÓN */}
       <Header logo={"/KlicusVirtual/klicuslogo.png"}></Header>
 
@@ -44,6 +51,8 @@ const KlicusLanding = () => {
 
       {/* FOOTER */}
      <Footer logo={"/KlicusVirtual/klicuslogo.png"}></Footer>
+
+     <WhatsAppFloat />
     </div>
   );
 };
